@@ -1,0 +1,27 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "rushi_mungse",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server",
+    "serve": "node server",
+    "development": "mix",
+    "watch": "mix watch",
+    "production": "mix --production"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "laravel-mix": "^6.0.39",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "resolve-url-loader": "4.0.0",
+    "sass": "^1.43.4",
+    "sass-loader": "12.1.0"
+  }
+}
