@@ -4,26 +4,37 @@
       <h1 class="pt-8 text-xl font-bold tracking-wide">Order Summary!</h1>
       <hr class="my-4" />
       <div class="ml-8">
-        <div class="grid grid-cols-3 my-4 items-center">
-          <img src="/images/peproni.png" alt="pizza" class="w-24" />
-          <p class="">1 pcs</p>
-          <p class="">$ 200</p>
-        </div>
-        <div class="grid grid-cols-3 my-4 items-center">
-          <img src="/images/peproni.png" alt="pizza" class="w-24" />
-          <p class="">1 pcs</p>
-          <p class="">$ 200</p>
+        <div class="grid grid-cols-2 my-4 items-center">
+          <div class="flex items-center">
+            <img src="/images/peproni.png" alt="pizza" class="w-24" />
+            <div class="ml-4">
+              <p class="font-bold mb-2 tracking-wide">Margharita</p>
+              <span>small</span>
+            </div>
+          </div>
+          <div class="flex justify-around">
+            <p class="">1 pcs</p>
+            <p class="">₹200</p>
+          </div>
         </div>
       </div>
       <hr />
       <div class="my-4">
-          <span class="font-bold text-md">Total Amount : <strong class="text-blue-500">$ 300</strong></span>
+        <span class="font-bold text-md"
+          >Total Amount : <strong class="text-yellow-500">₹300</strong></span
+        >
       </div>
       <div class="flex flex-col">
-          <input type="text" placeholder="Phone Number" class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style">
-          <input type="text" placeholder="Adress" " class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style">
+        <input
+          type="text"
+          placeholder="Phone Number"
+          class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style"
+        />
+        <input type="text" placeholder="Adress" " class="inline-block
+        rounded-normal py-1 px-2 mb-4 w-1/2 input_style">
       </div>
-      <a href="/" class=" inline-block btn rounded-full mb-8">Order Now</a>
+      <a href="/" class="inline-block btn rounded-full mb-8">Order Now</a>
+      <!-- <a href="/" class=" inline-block btn rounded-full mb-8">Login to Continue</a> -->
     </div>
   </div>
   <!-- <div class="container mx-auto ">

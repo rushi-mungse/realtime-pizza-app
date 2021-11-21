@@ -49,18 +49,19 @@ nav li a:hover {
 
 .input_style {
   outline: none;
-  border: 2px solid #FE5F1E;
-  background: #b23301;
+  border: 2px solid #232323;
+  background: #fff;
+  color: #232323;
 }
 
 .input_style::-moz-placeholder {
-  color: #fff;
+  color: #232323;
 }
 
 .input_style:-ms-input-placeholder {
-  color: #fff;
+  color: #232323;
 }
 
 .input_style::placeholder {
-  color: #fff;
+  color: #232323;
 }

@@ -46,9 +46,10 @@ nav li a {
 
 .input_style{
   outline: none;
-  border: 2px solid $primary;
-  background: $primary-hover;
+  border: 2px solid $dark;
+  background: $pure;
+  color: $dark;
 }
 .input_style::placeholder{
-  color: $pure;
+  color: $dark;
 }

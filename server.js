@@ -7,19 +7,14 @@ const path = require('path')
 const ejs = require('ejs')
 const ejsLayouts = require('express-ejs-layouts')
 
+
 app.use(express.static('public'))
 app.use(ejsLayouts)
 app.set('views', path.join(__dirname, 'resources/views'))
 app.set('view engine', 'ejs')
 
 //route
-app.get('/', (req, res) => {
-    res.render('home')
-})
-
-app.get('/cart', (req, res) => {
-    res.render('customer/cart')
-})
+require('./routes/web')(app)
 
 //create server using express
 app.listen(PORT, () => {
