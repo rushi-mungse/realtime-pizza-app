@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.get('/cart', (req, res) => {
+    res.render('customer/cart')
+})
+
 //create server using express
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)

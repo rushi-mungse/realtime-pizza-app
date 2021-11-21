@@ -29,9 +29,26 @@ nav li a {
   background: $primary;
   outline: none;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   transition: $smooth;
   &:hover {
     background: $primary-hover;
   }
+}
+.cart {
+  height: calc(100vh - 87px);
+  color: $pure;
+}
+.order {
+  min-height: calc(100vh - 87px);
+  color: $pure;
+}
+
+.input_style{
+  outline: none;
+  border: 2px solid $primary;
+  background: $primary-hover;
+}
+.input_style::placeholder{
+  color: $pure;
 }
