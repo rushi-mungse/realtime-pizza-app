@@ -1,8 +1,37 @@
-$primary: #232323;
-$pure: #fff;
+@import "./variables";
 
 body {
-  background-color: $primary;
-  color: $pure;
   font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+nav li:last-child a {
+  background: $primary;
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+nav li a {
+  transition: $smooth;
+  &:hover {
+    color: $primary;
+  }
+}
+.home_wrapper {
+  height: calc(100vh - 87px);
+  color: $pure;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  color: $pure;
+  background: $primary;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  transition: $smooth;
+  &:hover {
+    background: $primary-hover;
+  }
 }

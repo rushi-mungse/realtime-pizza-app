@@ -1,5 +1,38 @@
 body {
-  background-color: #232323;
-  color: #fff;
   font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav li:last-child a {
+  background: #FE5F1E;
+}
+nav li:last-child a:hover {
+  background: #b23301;
+}
+
+nav li a {
+  transition: all 0.3s ease-in-out;
+}
+nav li a:hover {
+  color: #FE5F1E;
+}
+
+.home_wrapper {
+  height: calc(100vh - 87px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  color: #fff;
+  background: #FE5F1E;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  background: #b23301;
 }
