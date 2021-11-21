@@ -44,12 +44,22 @@ nav li a {
   color: $pure;
 }
 
-.input_style{
+.input_style {
   outline: none;
   border: 2px solid $dark;
   background: $pure;
   color: $dark;
 }
-.input_style::placeholder{
+.input_style::placeholder {
   color: $dark;
+}
+.login {
+  height: calc(100vh - 87px);
+  color: $pure;
+}
+.login a{
+  color: $primary;
+  &:hover{
+    color: $primary-hover;
+  }
 }

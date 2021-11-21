@@ -65,3 +65,15 @@ nav li a:hover {
 .input_style::placeholder {
   color: #232323;
 }
+
+.login {
+  height: calc(100vh - 87px);
+  color: #fff;
+}
+
+.login a {
+  color: #FE5F1E;
+}
+.login a:hover {
+  color: #b23301;
+}
