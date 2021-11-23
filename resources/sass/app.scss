@@ -57,9 +57,13 @@ nav li a {
   height: calc(100vh - 87px);
   color: $pure;
 }
-.login a{
+.login a {
   color: $primary;
-  &:hover{
+  &:hover {
     color: $primary-hover;
   }
+}
+.menu {
+  color: $dark;
+  min-height: var(100vh - 87px);
 }
