@@ -35,7 +35,8 @@
         <div class="flex items-center justify-around mt-4">
           <span class="font-bold text-lg">₹<%=pizza.price%></span>
           <button
-            class="py-1 px-6 rounded-full flex items-center font-bold btn"
+            class="py-1 px-6 rounded-full flex items-center font-bold btn add_to_cart"
+            data-pozza="<%=JSON.stringify(pizza) %>"
           >
             <span>+</span>
             <span class="ml-4">Add</span>

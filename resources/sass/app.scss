@@ -1,4 +1,8 @@
 @import "./variables";
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+$a: 100vh;
+$b: 87px;
 
 body {
   font-family: "Lato", sans-serif;
@@ -18,7 +22,7 @@ nav li a {
   }
 }
 .home_wrapper {
-  height: calc(100vh - 87px);
+  height: calc(#{$a} - #{$b});
   color: $pure;
   display: flex;
   align-items: center;
@@ -36,11 +40,11 @@ nav li a {
   }
 }
 .cart {
-  height: calc(100vh - 87px);
+  height: calc(#{$a} - #{$b});
   color: $pure;
 }
 .order {
-  min-height: calc(100vh - 87px);
+  min-height: calc(#{$a} - #{$b});
   color: $pure;
 }
 
@@ -54,7 +58,7 @@ nav li a {
   color: $dark;
 }
 .login {
-  height: calc(100vh - 87px);
+  height: calc(#{$a} - #{$b});
   color: $pure;
 }
 .login a {
@@ -65,5 +69,10 @@ nav li a {
 }
 .menu {
   color: $dark;
-  min-height: var(100vh - 87px);
+  min-height: calc(#{$a} - #{$b});
+}
+
+.noty_theme__mint {
+  border-radius: 50px!important;
+  padding-left: 8px!important;
 }
