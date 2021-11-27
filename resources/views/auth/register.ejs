@@ -1,10 +1,13 @@
 <section class="login flex bg-gray-900 justify-center pt-24">
   <div class="w-full max-w-xs">
     <form
-      action=""
+      action="/register"
       method="POST"
       class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
     >
+      <% if(messages.error){%>
+      <span class="text-red-500 text-sm"><%= messages.error%></span>
+      <%}%>
       <div class="mb-4">
         <label
           class="block text-gray-700 text-sm font-bold mb-2"
@@ -13,7 +16,7 @@
           Name
         </label>
         <input
-          name="name"
+          name="name" value="<%=messages.name%>"
           class="
             shadow
             appearance-none
@@ -39,7 +42,7 @@
           Email
         </label>
         <input
-          name="email"
+          name="email" value="<%=messages.email%>"
           class="
             shadow
             appearance-none
@@ -102,7 +105,7 @@
         </button>
         <a
           class="inline-block align-baseline font-bold text-sm"
-          href="/register"
+          href="/login"
         >
           Already have account?
         </a>

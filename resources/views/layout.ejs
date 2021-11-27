@@ -27,8 +27,15 @@
           <li class="ml-6"><a href="/">Home</a></li>
           <li class="ml-6"><a href="/menu">Menu</a></li>
           <li class="ml-6"><a href="/offer">Offers</a></li>
+          <% if(user){%>
+          <li class="ml-6">
+            <form action="/logout" method="POST" id="logout"></form>
+            <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+          </li>
+          <% }else{%>
           <li class="ml-6"><a href="/register">Register</a></li>
           <li class="ml-6"><a href="/login">Login</a></li>
+          <% }%>
           <li class="ml-6">
             <a
               href="/cart"
