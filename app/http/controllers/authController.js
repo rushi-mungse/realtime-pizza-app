@@ -8,6 +8,11 @@ function authController() {
             res.render('auth/login')
         },
         postLogin(req, res, next) {
+            const { email, password } = req.body;
+            if (!email || !password) {
+                req.flash('error', 'All fields are required')
+                return res.redirect('/login')
+            }
             passport.authenticate('local', (err, user, info) => {
                 if (err) {
                     req.flash('error', info.message)
@@ -22,7 +27,7 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                     }
-                    res.redirect('/')
+                    return res.redirect('/customer/order')
                 })
             })(req, res, next)
         },
@@ -32,11 +37,11 @@ function authController() {
 
         async postRegister(req, res) {
             const { name, email, password } = req.body;
-            req.flash('name', name)
-            req.flash('email', email)
             if (!name || !email || !password) {
+                req.flash('name', name)
+                req.flash('email', email)
                 req.flash('error', 'All fields are required')
-                res.redirect('/register')
+                return res.redirect('/register')
             }
             const exist = await User.exists({ email })
 
@@ -44,7 +49,7 @@ function authController() {
                 req.flash('name', name)
                 req.flash('email', email)
                 req.flash('error', 'Email already registered')
-                res.redirect('/register')
+                return res.redirect('/register')
             }
             const hashPassword = await bcrypt.hash(password, 10);
 
@@ -56,15 +61,16 @@ function authController() {
 
 
             user.save().then(user => {
+                //login
                 res.redirect('/')
             }).catch((error) => {
                 req.flash('name', name)
                 req.flash('email', email)
                 req.flash('error', 'Something went wrong!')
-                res.redirect('/register')
+                return res.redirect('/register')
             })
         },
-        logout(req,res){
+        logout(req, res) {
             req.logout()
             return res.redirect('/login')
         }

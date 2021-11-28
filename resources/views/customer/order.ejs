@@ -1,0 +1,47 @@
+<section class="order_customer light-section">
+  <div class="container mx-auto pt-12">
+    <h1 class="font-bold text-xl">All Pizzas</h1>
+    <%if(messages.sucess){%>
+    <div
+      id="success-alert"
+      class="
+        flex
+        items-center
+        px-4
+        py-3
+        bg-green-500
+        text-white text-sm
+        mt-2
+        rounded-md
+      "
+      role="alert"
+    >
+      <span><%meaasges.success%></span>
+    </div>
+    <%}%>
+    <table class="w-full table-auto bg-gray-900 text-white mt-8">
+      <thead>
+        <tr>
+          <th class="border px-4 py-2 text-left">Orders</th>
+          <th class="border px-4 py-2 text-left">Address</th>
+          <th class="border px-4 py-2 text-left">Phone</th>
+          <th class="border px-4 py-2 text-left">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(orders.length){%> <% orders.forEach(order=>{%>
+        <tr>
+          <td class="border px-4 p-2"><a href="/"><%= order._id%></a></td>
+          <td class="border px-4 p-2"><%= order.address%></td>
+          <td class="border px-4 p-2"><%= order.phone%></td>
+          <td class="border px-4 p-2">
+            <%= moment(order.createdAt).format('hh:mm A')%>
+          </td>
+        </tr>
+        <%})%> <% }else{%>
+        <span>No Oreders yet!</span>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+</section>

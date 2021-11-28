@@ -30,17 +30,31 @@
           </strong></span
         >
       </div>
-      <div class="flex flex-col">
-        <input
-          type="text"
-          placeholder="Phone Number"
-          class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style"
-        />
-        <input type="text" placeholder="Adress" " class="inline-block
-        rounded-normal py-1 px-2 mb-4 w-1/2 input_style">
-      </div>
-      <a href="/" class="inline-block btn rounded-full mb-8">Order Now</a>
-      <!-- <a href="/" class=" inline-block btn rounded-full mb-8">Login to Continue</a> -->
+      <%if(user){%>
+      <form action="/order" method="POST">
+        <div class="flex flex-col">
+          <input
+            name="phone"
+            type="text"
+            placeholder="Phone Number"
+            class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style"
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            class="inline-block rounded-normal py-1 px-2 mb-4 w-1/2 input_style"
+          />
+        </div>
+        <button type="submit">
+          <a class="inline-block btn rounded-full mb-8">Order Now</a>
+        </button>
+      </form>
+      <%}else{%>
+      <a href="/login" class="inline-block btn rounded-full mb-8"
+        >Login to Continue</a
+      >
+      <%}%>
     </div>
   </div>
   <% }else{%>

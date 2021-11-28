@@ -364,3 +364,12 @@ nav li a:hover {
   border-radius: 50px !important;
   padding-left: 8px !important;
 }
+
+.order_customer {
+  color: #232323;
+}
+
+table tbody tr a {
+  color: #FE5F1E;
+  font-weight: 400;
+}
