@@ -27,6 +27,10 @@ function orderController() {
         async index(req, res) {
             const orders = await Order.find({ customerId: req.user._id }, null, { sort: { 'createdAt': -1 } })
             return res.render('customer/order', { orders, moment })
+        },
+        async show(req, res) {
+            const order = await Order.findById(req.params.id);
+            res.render('customer/singleOrder', { order })
         }
     }
 }

@@ -1,5 +1,16 @@
 <section class="order bg-gray-900">
-  <% if(session.cart){%>
+  <%if(user){%>
+  <div class="your_orders">
+    <a href="/customer/order" class="btn text-white rounded-full font-bold"
+      >Your Orders</a
+    >
+    <% if(user.role=='admin'){%>
+    <a href="/admin/order" class="btn text-white rounded-full ml-4 font-bold"
+      >Customer Orders</a
+    >
+    <%}%>
+  </div>
+  <%}%> <% if(session.cart){%>
   <div class="container mx-auto">
     <div class="w-1/2 mx-auto">
       <h1 class="pt-8 text-xl font-bold tracking-wide">Order Summary!</h1>

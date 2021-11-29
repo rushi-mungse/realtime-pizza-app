@@ -26,16 +26,22 @@
           <th class="border px-4 py-2 text-left">Address</th>
           <th class="border px-4 py-2 text-left">Phone</th>
           <th class="border px-4 py-2 text-left">Time</th>
+          <th class="border px-4 py-2 text-left">Date</th>
         </tr>
       </thead>
       <tbody>
         <% if(orders.length){%> <% orders.forEach(order=>{%>
         <tr>
-          <td class="border px-4 p-2"><a href="/"><%= order._id%></a></td>
+          <td class="border px-4 p-2">
+            <a href="/customer/order/<%=order._id%>"><%= order._id%></a>
+          </td>
           <td class="border px-4 p-2"><%= order.address%></td>
           <td class="border px-4 p-2"><%= order.phone%></td>
           <td class="border px-4 p-2">
             <%= moment(order.createdAt).format('hh:mm A')%>
+          </td>
+          <td class="border px-4 p-2">
+            <%= moment(order.createdAt).format('DD/MM/YYYY')%>
           </td>
         </tr>
         <%})%> <% }else{%>
