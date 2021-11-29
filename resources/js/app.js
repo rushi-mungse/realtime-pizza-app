@@ -39,29 +39,34 @@ if (alertMsg) {
     }, 1000);
 }
 
-initAdmin()
 
 //status update
 let statuses = document.querySelectorAll('.status_line')
-console.log(statuses);
 let hiddenInput = document.querySelector('#hidden_input')
-console.log(hiddenInput);
+
 let order = hiddenInput ? hiddenInput.value : null
 order = JSON.parse(order)
-let time=document.createElement('small')
-let date=document.createElement('small')
+let time = document.createElement('small')
+let date = document.createElement('small')
 
 function updateStatus(order) {
     let stepCompleted = true;
+    statuses.forEach((status)=>{
+        status.classList.remove('step-completed')
+        status.classList.remove('current')
+    })
     statuses.forEach((status) => {
         let dataProp = status.dataset.status
         if (stepCompleted) {
             status.classList.add('step-completed')
+             if (status.nextElementSibling) {
+                status.nextElementSibling.classList.remove('current')
+            }
         }
         if (dataProp === order.status) {
             stepCompleted = false;
-            time.innerText=moment(order.updatedAt).format('hh:mm A')
-            date.innerText=moment(order.updatedAt).format('DD/MM/YYYY')
+            time.innerText = moment(order.updatedAt).format('hh:mm A')
+            date.innerText = moment(order.updatedAt).format('DD/MM/YYYY')
             
             status.appendChild(time)
             status.appendChild(date)
@@ -72,4 +77,30 @@ function updateStatus(order) {
     })
 }
 
+
 updateStatus(order)
+initAdmin()
+// socket connection
+const socket = io()
+if (order) {
+    socket.emit('join', `order_${order._id}`)
+}
+
+// let adminPath=window.location.pathname
+// if(adminPath.includes('admin')){
+//     initAdmin()
+//     socket.emit('join','adminRoom')
+// }
+
+socket.on('orderUpdated', (data) => {
+    const updatedOrder = { ...order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+      new Noty({
+            text: 'Order Updated',
+            type: 'success',
+            timeout: 500,
+            progressBar: false,
+        }).show();
+})

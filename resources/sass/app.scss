@@ -80,6 +80,9 @@ nav li a {
   min-height: calc(#{$a} - #{$b});
   color: $dark;
 }
+table{
+  margin-bottom: 30px;
+}
 table tbody tr a {
   color: $primary;
   font-weight: 400;
@@ -166,15 +169,15 @@ section.status {
 }
 
 .status-box ul li.step-completed:before {
-  background: $gray;
+  background: green;
 }
 
 .status-box ul li.step-completed span:after {
-  background: $gray;
+  background: green;
 }
 
 .status-box ul li.step-completed span {
-  color: $gray;
+  color: green;
 }
 
 .status-box ul li.current span {
@@ -189,4 +192,10 @@ section.status {
   font-size: 16px;
   font-weight: bold;
   color: $primary;
+}
+.user_id{
+  font-weight: bold;
+  font-size: 16px;
+  color: $primary;
+  letter-spacing: 1px;
 }

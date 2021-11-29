@@ -24,10 +24,13 @@
   <body>
     <div class="border-b-2 border-gray-100 bg-gray-100">
       <nav class="container flex mx-auto items-center justify-between py-4">
-        <div>
+        <div class="flex items-center">
           <a href="/">
             <img src="/images/logo.png" alt="logo" />
           </a>
+          <%if(user){%>
+          <span class="ml-8 italic user_id user_name">@<%=user.name%></span>
+          <%}%>
         </div>
         <ul class="flex items-center">
           <li class="ml-6"><a href="/">Home</a></li>
@@ -58,6 +61,7 @@
       </nav>
     </div>
     <%- body %>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/app.js"></script>
   </body>
 </html>

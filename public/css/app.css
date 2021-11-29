@@ -370,6 +370,10 @@ nav li a:hover {
   color: #232323;
 }
 
+table {
+  margin-bottom: 30px;
+}
+
 table tbody tr a {
   color: #FE5F1E;
   font-weight: 400;
@@ -463,15 +467,15 @@ section.status {
 }
 
 .status-box ul li.step-completed:before {
-  background: #ccc;
+  background: green;
 }
 
 .status-box ul li.step-completed span:after {
-  background: #ccc;
+  background: green;
 }
 
 .status-box ul li.step-completed span {
-  color: #ccc;
+  color: green;
 }
 
 .status-box ul li.current span {
@@ -486,4 +490,11 @@ section.status {
   font-size: 16px;
   font-weight: bold;
   color: #FE5F1E;
+}
+
+.user_id {
+  font-weight: bold;
+  font-size: 16px;
+  color: #FE5F1E;
+  letter-spacing: 1px;
 }

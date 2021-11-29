@@ -11,14 +11,14 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoStore = require('connect-mongo')
-const passport=require('passport')
+const passport = require('passport')
+const Emitter = require('events')
 
 //mongoose connection
 function DbConnected() {
     mongoose.connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        // useFindAndModify: false
     });
 
     const db = mongoose.connection;
@@ -28,6 +28,9 @@ function DbConnected() {
     });
 }
 DbConnected()
+//Emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter',eventEmitter)
 
 // set session
 app.use(session({
@@ -45,7 +48,7 @@ app.use(flash())
 app.use(express.static('public'))
 
 //passport config
-const passportInit=require('./app/config/passport')
+const passportInit = require('./app/config/passport')
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
@@ -59,13 +62,30 @@ app.use((req, res, next) => {
 app.use(ejsLayouts)
 app.set('views', path.join(__dirname, 'resources/views'))
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 //route
 require('./routes/web')(app)
 
 //create server using express
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
 })
+
+//socket connection
+const io = require('socket.io')(server)
+
+io.on('connection', (socket) => {
+    socket.on('join', (orderId) => {
+        socket.join(orderId)
+    })
+})
+
+eventEmitter.on('orderUpdated',(data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated',data)
+})
+
+// eventEmitter.on('orderPlaced',(data)=>{
+//     io.to('adminRoom').emit('newOrder',data)
+// })
