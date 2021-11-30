@@ -29,6 +29,7 @@ function webRoutes(app) {
 
     app.get('/admin/order', admin, adminOrderController().index)
     app.post('/admin/order/status', admin, statusController().index)
+    app.get('/admin/update-menu', admin, adminOrderController().updateMenu)
 
 }
 

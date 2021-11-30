@@ -1,4 +1,5 @@
 const Order = require('../../../models/order')
+
 function orderController() {
     return {
         index(req, res) {
@@ -8,6 +9,9 @@ function orderController() {
                 }
                 return res.render('admin/order')
             })
+        },
+        updateMenu(req,res){
+            res.render('admin/update-menu')
         },
     }
 }
