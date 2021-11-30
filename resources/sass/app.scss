@@ -70,6 +70,7 @@ nav li a {
 .menu {
   color: $dark;
   min-height: calc(#{$a} - #{$b});
+  max-width: 90%;
 }
 
 .noty_theme__mint {
@@ -198,4 +199,23 @@ section.status {
   font-size: 16px;
   color: $primary;
   letter-spacing: 1px;
+}
+.home_container{
+  max-width: 90%;
+}
+@media only screen and (max-width: 550px) {
+.status-box{
+  max-width: 90%;
+}
+}
+
+@media only screen and (max-width: 1024px) {
+  table {
+    display: block;
+    overflow-x: scroll;
+  }
+  .order_customer{
+    max-width:95% ;
+    margin: 0 auto;
+  }
 }

@@ -16,12 +16,14 @@ function orderController() {
             })
 
             order.save().then(result => {
-                req.flash('success', 'order placed succesfully!')
-                delete req.session.cart;
-                // emit
-                // const eventEmitter = req.app.get('eventEmitter')
-                // eventEmitter.emit('orderPlaced', result);
-                return res.redirect('/customer/order')
+                Order.populate(result, { path: 'customerId' }, (err, newOrder) => {
+                    req.flash('success', 'order placed succesfully!')
+                    delete req.session.cart;
+                    // emit
+                    const eventEmitter = req.app.get('eventEmitter')
+                    eventEmitter.emit('orderPlaced', newOrder);
+                    return res.redirect('/customer/order')
+                })
             }).catch(err => {
                 req.flash('error', 'Something went wring!')
                 return res.redirect('/cart')

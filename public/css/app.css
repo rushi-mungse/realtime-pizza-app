@@ -358,6 +358,7 @@ nav li a:hover {
 .menu {
   color: #232323;
   min-height: calc(100vh - 87px);
+  max-width: 90%;
 }
 
 .noty_theme__mint {
@@ -497,4 +498,25 @@ section.status {
   font-size: 16px;
   color: #FE5F1E;
   letter-spacing: 1px;
+}
+
+.home_container {
+  max-width: 90%;
+}
+
+@media only screen and (max-width: 550px) {
+  .status-box {
+    max-width: 90%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  table {
+    display: block;
+    overflow-x: scroll;
+  }
+
+  .order_customer {
+    max-width: 95%;
+    margin: 0 auto;
+  }
 }

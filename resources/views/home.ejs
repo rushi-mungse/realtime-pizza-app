@@ -1,13 +1,14 @@
 <section class="bg-gray-900 home_wrapper">
-  <div class="flex items-center justify-center">
-    <div class="w-1/2 mr-16">
-      <h1 class="text-6xl font-bold italic">Don't Wait!</h1>
+  <div class="home_container">
+  <div class=" md:flex-row flex-col flex items-center justify-center ">
+    <div class="md:w-1/2 mr-16 mx-auto">
+      <h1 class="text-6xl md:text-5xl lg:text-6xl font-bold italic w-full">Don't Wait!</h1>
       <p class="my-4 font-bold text-blue-200 text-xl tracking-wide">
         Are you hungry?
       </p>
       <button class="btn rounded-full text-sm">ORDER NOW</button>
     </div>
-    <div class="w-1/2">
+    <div class="w-1/2 mt-12">
       <img src="/images/pizza.png" alt="pizaa" />
     </div>
   </div>
@@ -25,7 +26,7 @@
     "
   >
     <%pizzas.forEach((pizza)=>{%>
-    <div class="w-full md:w-64 mt-8 py-4 border-2 border-dark bg-gray-50">
+    <div class="w-11/12 md:w-64 mt-8 py-4 border-2 border-dark bg-gray-50 mx-auto">
       <img class="h-40 mb-4 mx-auto" src="/images/pizza.png" alt="pizza" />
       <div class="text-center">
         <h2 class="mb-2 text-lg"><%=pizza.name%></h2>
@@ -46,4 +47,5 @@
     </div>
     <%})%>
   </div>
+   </div>
 </section>

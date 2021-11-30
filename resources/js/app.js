@@ -79,18 +79,19 @@ function updateStatus(order) {
 
 
 updateStatus(order)
-initAdmin()
+// initAdmin()
 // socket connection
 const socket = io()
 if (order) {
     socket.emit('join', `order_${order._id}`)
 }
 
-// let adminPath=window.location.pathname
-// if(adminPath.includes('admin')){
-//     initAdmin()
-//     socket.emit('join','adminRoom')
-// }
+let adminPath=window.location.pathname
+console.log(adminPath)
+if(adminPath.includes('admin')){
+    initAdmin(socket)
+    socket.emit('join','adminRoom')
+}
 
 socket.on('orderUpdated', (data) => {
     const updatedOrder = { ...order }

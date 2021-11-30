@@ -86,6 +86,6 @@ eventEmitter.on('orderUpdated',(data)=>{
     io.to(`order_${data.id}`).emit('orderUpdated',data)
 })
 
-// eventEmitter.on('orderPlaced',(data)=>{
-//     io.to('adminRoom').emit('newOrder',data)
-// })
+eventEmitter.on('orderPlaced',(data)=>{
+    io.to('adminRoom').emit('newOrder',data)
+})
