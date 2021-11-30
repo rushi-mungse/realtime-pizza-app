@@ -1,14 +1,18 @@
 <section class="bg-gray-900 order_customer text-white">
   <section class="login flex bg-gray-900 justify-center pt-24">
+    <% if(messages.success){%>
+      <span class="text-green-900 text-md"><%= messages.success%></span>
+      <%}%>
     <div class="w-full max-w-xs">
       <form
-        action="/order/update-menu"
+        action="/admin/update-menu"
         method="POST"
+        enctype="multipart/form-data"
         class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        <!-- <% if(messages.error){%>
+        <% if(messages.error){%>
         <span class="text-red-500 text-sm"><%= messages.error%></span>
-        <%}%> -->
+        <%}%>
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
             Name
@@ -39,7 +43,7 @@
           </label>
           <input
             name="price"
-            value="<%=messages.email%>"
+            value="<%=messages.price%>"
             class="
               shadow
               appearance-none
@@ -63,6 +67,7 @@
           </label>
           <input
             name="size"
+            value="<%=messages.size%>"
             class="
               shadow
               appearance-none
@@ -78,7 +83,7 @@
             "
             id="size"
             type="text"
-            placeholder="Menu size"
+            placeholder="Enter menu size"
           />
         </div>
         <div class="mb-6">

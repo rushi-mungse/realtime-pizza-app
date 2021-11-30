@@ -30,7 +30,7 @@ function DbConnected() {
 DbConnected()
 //Emitter
 const eventEmitter = new Emitter()
-app.set('eventEmitter',eventEmitter)
+app.set('eventEmitter', eventEmitter)
 
 // set session
 app.use(session({
@@ -64,10 +64,11 @@ app.set('views', path.join(__dirname, 'resources/views'))
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+global.appRoot = path.resolve(__dirname)
 
 //route
 require('./routes/web')(app)
-
+app.use('/uploads',express.static('uploads'))
 //create server using express
 const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
@@ -82,10 +83,10 @@ io.on('connection', (socket) => {
     })
 })
 
-eventEmitter.on('orderUpdated',(data)=>{
-    io.to(`order_${data.id}`).emit('orderUpdated',data)
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
 })
 
-eventEmitter.on('orderPlaced',(data)=>{
-    io.to('adminRoom').emit('newOrder',data)
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('newOrder', data)
 })
