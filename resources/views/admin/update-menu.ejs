@@ -1,8 +1,9 @@
 <section class="bg-gray-900 order_customer text-white">
-  <section class="login flex bg-gray-900 justify-center pt-24">
-    <% if(messages.success){%>
-      <span class="text-green-900 text-md"><%= messages.success%></span>
-      <%}%>
+  <p class="text-md font-bold py-4 w-1/2 mx-auto text-center">
+    Add menu in database for show on this service!
+  </p>
+
+  <section class="login flex bg-gray-900 justify-center pt-8">
     <div class="w-full max-w-xs">
       <form
         action="/admin/update-menu"
@@ -104,6 +105,7 @@
               mb-3
               leading-tight
               focus:outline-none focus:shadow-outline
+              cursor-pointer
             "
             id="image"
             type="file"
@@ -126,12 +128,6 @@
           >
             Add Menu
           </button>
-          <!-- <a
-            class="inline-block align-baseline font-bold text-sm"
-            href="/login"
-          >
-            Already have account?
-          </a> -->
         </div>
       </form>
       <p class="text-center text-gray-500 text-xs">

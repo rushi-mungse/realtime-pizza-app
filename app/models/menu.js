@@ -6,6 +6,6 @@ const menuSchema = new Schema({
     price: { type: Number, required: true },
     image: { type: String, required: true },
     size: { type: String, required: true }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Product', menuSchema)
